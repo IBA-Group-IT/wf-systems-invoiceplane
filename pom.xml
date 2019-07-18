@@ -42,7 +42,7 @@
 	<groupId>com.ibagroup.wf</groupId>
 	<artifactId>intelia-systems-invoiceplane</artifactId>
 	<packaging>jar</packaging>
-	<version>${intelia.version}.0.0</version>
+	<version>${intelia.version}.0.1</version>
 
 	<name>Workfusion sample RPA - InvoicePlane automation</name>
 
