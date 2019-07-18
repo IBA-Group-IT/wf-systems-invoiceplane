@@ -1,4 +1,4 @@
-package com.ibagroup.workfusion.rpa.systems.invoiceplane.pages;
+package com.ibagroup.wf.intelia.systems.invoiceplane.pages;
 
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;

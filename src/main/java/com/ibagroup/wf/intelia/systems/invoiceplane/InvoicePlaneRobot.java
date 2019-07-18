@@ -1,12 +1,12 @@
-package com.ibagroup.workfusion.rpa.systems.invoiceplane;
+package com.ibagroup.wf.intelia.systems.invoiceplane;
 
 import com.freedomoss.crowdcontrol.webharvest.web.dto.SecureEntryDTO;
 import com.ibagroup.wf.intelia.core.config.ConfigurationManager;
 import com.ibagroup.wf.intelia.core.robots.RobotProtocol;
-import com.ibagroup.workfusion.rpa.systems.invoiceplane.clients.InvoicePlaneClient;
-import com.ibagroup.workfusion.rpa.systems.invoiceplane.pages.LoginPage;
-import com.ibagroup.workfusion.rpa.systems.invoiceplane.pages.MainPage;
-import com.ibagroup.workfusion.rpa.systems.invoiceplane.pages.MenuNavigationBar;
+import com.ibagroup.wf.intelia.systems.invoiceplane.clients.InvoicePlaneClient;
+import com.ibagroup.wf.intelia.systems.invoiceplane.pages.LoginPage;
+import com.ibagroup.wf.intelia.systems.invoiceplane.pages.MainPage;
+import com.ibagroup.wf.intelia.systems.invoiceplane.pages.MenuNavigationBar;
 
 public interface InvoicePlaneRobot extends RobotProtocol {
 	

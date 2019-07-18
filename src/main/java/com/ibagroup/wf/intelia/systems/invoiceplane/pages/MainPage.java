@@ -1,4 +1,4 @@
-package com.ibagroup.workfusion.rpa.systems.invoiceplane.pages;
+package com.ibagroup.wf.intelia.systems.invoiceplane.pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

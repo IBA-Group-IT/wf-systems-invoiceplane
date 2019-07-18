@@ -1,10 +1,10 @@
-package com.ibagroup.workfusion.rpa.systems.invoiceplane.clients;
+package com.ibagroup.wf.intelia.systems.invoiceplane.clients;
 
 import java.util.concurrent.TimeUnit;
 
 import com.ibagroup.wf.intelia.core.clients.RobotDriverWrapper;
 import com.ibagroup.wf.intelia.core.config.ConfigurationManager;
-import com.ibagroup.workfusion.rpa.systems.invoiceplane.pages.LoginPage;
+import com.ibagroup.wf.intelia.systems.invoiceplane.pages.LoginPage;
 
 public class InvoicePlaneClient extends RobotDriverWrapper {
 

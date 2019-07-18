@@ -1,4 +1,4 @@
-package com.ibagroup.workfusion.rpa.systems.invoiceplane.pages;
+package com.ibagroup.wf.intelia.systems.invoiceplane.pages;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,7 @@ import com.ibagroup.wf.intelia.core.clients.RobotDriverWrapper;
 import com.ibagroup.wf.intelia.core.config.ConfigurationManager;
 import com.ibagroup.wf.intelia.core.pagefactory.Wait;
 import com.ibagroup.wf.intelia.core.pagefactory.Wait.WaitFunc;
-import com.ibagroup.workfusion.rpa.systems.invoiceplane.to.ProductTO;
+import com.ibagroup.wf.intelia.systems.invoiceplane.to.ProductTO;
 
 
 public class ProductsPage extends RobotDriverWrapper {

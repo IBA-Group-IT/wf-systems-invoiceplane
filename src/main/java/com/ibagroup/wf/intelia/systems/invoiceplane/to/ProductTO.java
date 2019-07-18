@@ -1,4 +1,4 @@
-package com.ibagroup.workfusion.rpa.systems.invoiceplane.to;
+package com.ibagroup.wf.intelia.systems.invoiceplane.to;
 
 import com.freedomoss.workfusion.utils.gson.GsonUtils;
 import com.google.gson.annotations.Expose;
