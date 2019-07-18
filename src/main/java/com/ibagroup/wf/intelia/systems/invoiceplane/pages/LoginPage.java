@@ -5,11 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.freedomoss.crowdcontrol.webharvest.web.dto.SecureEntryDTO;
 import com.ibagroup.wf.intelia.core.clients.RobotDriverWrapper;
 import com.ibagroup.wf.intelia.core.config.ConfigurationManager;
 import com.ibagroup.wf.intelia.core.pagefactory.Wait;
 import com.ibagroup.wf.intelia.core.pagefactory.Wait.WaitFunc;
+import com.ibagroup.wf.intelia.core.security.SecureEntryDtoWrapper;
 import com.ibagroup.wf.intelia.systems.InvalidLoginException;
 
 public class LoginPage extends RobotDriverWrapper {
@@ -42,7 +42,7 @@ public class LoginPage extends RobotDriverWrapper {
         super(cmn);
     }
 
-    public MainPage login(SecureEntryDTO invoicePlaneCred) {
+    public MainPage login(SecureEntryDtoWrapper invoicePlaneCred) {
         email.click();
         email.clear();
         email.sendKeys(invoicePlaneCred.getKey());

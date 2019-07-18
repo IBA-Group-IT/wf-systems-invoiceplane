@@ -1,8 +1,9 @@
 package com.ibagroup.wf.intelia.systems.invoiceplane;
 
-import com.freedomoss.crowdcontrol.webharvest.web.dto.SecureEntryDTO;
+
 import com.ibagroup.wf.intelia.core.config.ConfigurationManager;
 import com.ibagroup.wf.intelia.core.robots.RobotProtocol;
+import com.ibagroup.wf.intelia.core.security.SecureEntryDtoWrapper;
 import com.ibagroup.wf.intelia.systems.invoiceplane.clients.InvoicePlaneClient;
 import com.ibagroup.wf.intelia.systems.invoiceplane.pages.LoginPage;
 import com.ibagroup.wf.intelia.systems.invoiceplane.pages.MainPage;
@@ -10,7 +11,7 @@ import com.ibagroup.wf.intelia.systems.invoiceplane.pages.MenuNavigationBar;
 
 public interface InvoicePlaneRobot extends RobotProtocol {
 	
-    default MainPage initRobot(SecureEntryDTO loginCreds) {
+    default MainPage initRobot(SecureEntryDtoWrapper loginCreds) {
     	InvoicePlaneClient client = new InvoicePlaneClient(getCfg());
 
         LoginPage loginPage = client.getLoginPage();
