@@ -10,7 +10,7 @@
 			</activation>
 			<properties>
 				<intelia.version>90</intelia.version>
-				<intelia.core.version>90.0.6</intelia.core.version>
+				<intelia.core.version>90.0.10</intelia.core.version>
 			</properties>
 		</profile>
 
@@ -18,7 +18,7 @@
 			<id>wf91</id>
 			<properties>
 				<intelia.version>91</intelia.version>
-				<intelia.core.version>91.0.6</intelia.core.version>
+				<intelia.core.version>91.0.10</intelia.core.version>
 			</properties>
 		</profile>
 
@@ -26,7 +26,7 @@
 			<id>wf92</id>
 			<properties>
 				<intelia.version>92</intelia.version>
-				<intelia.core.version>92.0.6</intelia.core.version>
+				<intelia.core.version>92.0.10</intelia.core.version>
 			</properties>
 		</profile>
 
@@ -34,7 +34,7 @@
 			<id>wf93</id>
 			<properties>
 				<intelia.version>93</intelia.version>
-				<intelia.core.version>93.0.6</intelia.core.version>
+				<intelia.core.version>93.0.10</intelia.core.version>
 			</properties>
 		</profile>
 	</profiles>
@@ -42,7 +42,7 @@
 	<groupId>com.ibagroup.wf</groupId>
 	<artifactId>intelia-systems-invoiceplane</artifactId>
 	<packaging>jar</packaging>
-	<version>${intelia.version}.0.2</version>
+	<version>${intelia.version}.0.3</version>
 
 	<name>Workfusion sample RPA - InvoicePlane automation</name>
 
