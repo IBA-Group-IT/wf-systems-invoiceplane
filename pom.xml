@@ -10,7 +10,8 @@
 			</activation>
 			<properties>
 				<intelia.version>90</intelia.version>
-				<intelia.core.version>90.0.10</intelia.core.version>
+				<intelia.core.version>90.0.11</intelia.core.version>
+				<workfusion.version>9.0.0.7</workfusion.version>
 			</properties>
 		</profile>
 
@@ -18,7 +19,8 @@
 			<id>wf91</id>
 			<properties>
 				<intelia.version>91</intelia.version>
-				<intelia.core.version>91.0.10</intelia.core.version>
+				<intelia.core.version>91.0.11</intelia.core.version>
+				<workfusion.version>9.1.0.5</workfusion.version>
 			</properties>
 		</profile>
 
@@ -26,7 +28,8 @@
 			<id>wf92</id>
 			<properties>
 				<intelia.version>92</intelia.version>
-				<intelia.core.version>92.0.10</intelia.core.version>
+				<intelia.core.version>92.0.11</intelia.core.version>
+				<workfusion.version>9.2.0.3</workfusion.version>
 			</properties>
 		</profile>
 
@@ -34,7 +37,8 @@
 			<id>wf93</id>
 			<properties>
 				<intelia.version>93</intelia.version>
-				<intelia.core.version>93.0.10</intelia.core.version>
+				<intelia.core.version>93.0.11</intelia.core.version>
+				<workfusion.version>9.3.0.0</workfusion.version>
 			</properties>
 		</profile>
 	</profiles>
@@ -42,7 +46,7 @@
 	<groupId>com.ibagroup.wf</groupId>
 	<artifactId>intelia-systems-invoiceplane</artifactId>
 	<packaging>jar</packaging>
-	<version>${intelia.version}.0.3</version>
+	<version>${intelia.version}.0.4</version>
 
 	<name>Workfusion sample RPA - InvoicePlane automation</name>
 
@@ -56,7 +60,19 @@
 			<groupId>com.ibagroup.wf</groupId>
 			<artifactId>intelia-core</artifactId>
 			<version>${intelia.core.version}</version>
-			<scope>compile</scope>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.freedomoss.crowdcontrol</groupId>
+			<artifactId>workfusion-machine</artifactId>
+			<version>${workfusion.version}</version>
+			<scope>provided</scope>
+			<exclusions>
+                <exclusion>
+                    <groupId>net.minidev</groupId>
+                    <artifactId>json-smart</artifactId>
+                </exclusion>
+            </exclusions>
 		</dependency>
 	</dependencies>
 
