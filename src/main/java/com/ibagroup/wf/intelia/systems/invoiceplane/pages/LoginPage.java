@@ -3,18 +3,13 @@ package com.ibagroup.wf.intelia.systems.invoiceplane.pages;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import com.ibagroup.wf.intelia.core.clients.RobotDriverWrapper;
-import com.ibagroup.wf.intelia.core.config.ConfigurationManager;
 import com.ibagroup.wf.intelia.core.pagefactory.Wait;
 import com.ibagroup.wf.intelia.core.pagefactory.Wait.WaitFunc;
 import com.ibagroup.wf.intelia.core.security.SecureEntryDtoWrapper;
 import com.ibagroup.wf.intelia.systems.InvalidLoginException;
 
 public class LoginPage extends RobotDriverWrapper {
-
-    private static final Logger logger = LoggerFactory.getLogger(LoginPage.class);
 
     private static final int WAIT_FIELD = 20;
 
@@ -38,10 +33,6 @@ public class LoginPage extends RobotDriverWrapper {
     @Wait(waitFunc = WaitFunc.VISIBLE, value = 5)
     private WebElement loginFailedMessage;
 
-    public LoginPage(ConfigurationManager cmn) {
-        super(cmn);
-    }
-
     public MainPage login(SecureEntryDtoWrapper invoicePlaneCred) {
         email.click();
         email.clear();
@@ -55,16 +46,16 @@ public class LoginPage extends RobotDriverWrapper {
 
         try {
         	String actualId = loginFailed.getAttribute("id");
-        	logger.debug(actualId);
+            getLogger().debug(actualId);
             if (!"main-area".equalsIgnoreCase(actualId)) {
                 throw new InvalidLoginException(loginFailedMessage.getText() + "\n" + "User Id: " + invoicePlaneCred.getKey());
             }
         } catch (TimeoutException e) {
-            logger.debug("Unkown error during Invoice Place authorisation process.");
+            getLogger().debug("Unkown error during Invoice Place authorisation process.");
             throw new RuntimeException();
         }
 
-        return new MainPage(getCfg());
+        return getInstance(MainPage.class);
     }
 
 }

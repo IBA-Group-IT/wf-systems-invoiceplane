@@ -2,13 +2,11 @@ package com.ibagroup.wf.intelia.systems.invoiceplane.clients;
 
 import java.util.concurrent.TimeUnit;
 import com.ibagroup.wf.intelia.core.clients.RobotDriverWrapper;
-import com.ibagroup.wf.intelia.core.config.ConfigurationManager;
 import com.ibagroup.wf.intelia.systems.invoiceplane.pages.LoginPage;
 
 public class InvoicePlaneClient extends RobotDriverWrapper {
 
-	public InvoicePlaneClient(ConfigurationManager cmn) {
-		super(cmn);
+    public InvoicePlaneClient() {
 		initDriver();
 	}
 
@@ -19,7 +17,7 @@ public class InvoicePlaneClient extends RobotDriverWrapper {
 
     public LoginPage getLoginPage() {
         getDriver().navigate().to(getCfg().getConfigItem("invoicePlane_site_url"));
-        return new LoginPage(getCfg());
+        return getInstance(LoginPage.class);
     }
 
 }
