@@ -55,7 +55,7 @@ public class LoginPage extends RobotDriverWrapper {
             throw new RuntimeException();
         }
 
-        return getInstance(MainPage.class);
+        return getInjector().getInstance(MainPage.class);
     }
 
 }

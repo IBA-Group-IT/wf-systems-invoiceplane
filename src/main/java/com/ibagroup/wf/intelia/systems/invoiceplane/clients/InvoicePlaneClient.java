@@ -17,7 +17,7 @@ public class InvoicePlaneClient extends RobotDriverWrapper {
 
     public LoginPage getLoginPage() {
         getDriver().navigate().to(getCfg().getConfigItem("invoicePlane_site_url"));
-        return getInstance(LoginPage.class);
+        return getInjector().getInstance(LoginPage.class);
     }
 
 }

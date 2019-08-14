@@ -21,19 +21,21 @@ import com.ibagroup.wf.intelia.systems.invoiceplane.pages.MenuNavigationBar;
 import com.ibagroup.wf.intelia.systems.invoiceplane.pages.ProductsPage;
 import com.ibagroup.wf.intelia.systems.invoiceplane.to.ProductTO;
 
-public class InvoicePlaneSystem extends Injector {
+public class InvoicePlaneSystem {
 
     public static final String INVOICEPLANE_CREDENTIALS_ALIAS = "invoice_plane";
 
     private Logger logger;
     private SecurityUtils securityUtils;
     private ConfigurationManager cfg;
+    private Injector injector;
 
     @Inject
-    public InvoicePlaneSystem(Logger logger, SecurityUtils securityUtils, ConfigurationManager cfg) {
+    public InvoicePlaneSystem(Logger logger, SecurityUtils securityUtils, ConfigurationManager cfg, Injector injector) {
         this.logger = logger;
         this.securityUtils = securityUtils;
         this.cfg = cfg;
+        this.injector = injector;
     }
 
     public ProductsPage addProduct(ProductTO product) {
@@ -74,11 +76,11 @@ public class InvoicePlaneSystem extends Injector {
         return t -> map.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
     }
 
-    private MenuNavigationBar initSystem() {
-        LoginPage loginPage = getInstance(InvoicePlaneClient.class).getLoginPage();
+    public MenuNavigationBar initSystem() {
+        LoginPage loginPage = injector.getInstance(InvoicePlaneClient.class).getLoginPage();
         SecureEntryDtoWrapper loginCreds = getLoginCreds();
         loginPage.login(loginCreds);
-        return getInstance(MenuNavigationBar.class);
+        return injector.getInstance(MenuNavigationBar.class);
     }
 
     private SecureEntryDtoWrapper getLoginCreds() {

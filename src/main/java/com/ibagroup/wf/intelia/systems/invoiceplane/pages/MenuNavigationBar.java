@@ -34,14 +34,14 @@ public class MenuNavigationBar extends RobotDriverWrapper {
     	productsMenu.click();
     	viewProductsMenuItem.click();
 
-        return getInstance(ProductsPage.class);
+        return getInjector().getInstance(ProductsPage.class);
     }
 
     public CreateProductPage openCreateProduct() {
         productsMenu.click();
         createProductMenuItem.click();
 
-        return getInstance(CreateProductPage.class);
+        return getInjector().getInstance(CreateProductPage.class);
     }
 
     public void openDashboard() {

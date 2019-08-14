@@ -70,7 +70,7 @@ public class CreateProductPage extends RobotDriverWrapper {
             throw new RuntimeException();
         }
     
-        return getInstance(ProductsPage.class);
+        return getInjector().getInstance(ProductsPage.class);
     }
     
 }
