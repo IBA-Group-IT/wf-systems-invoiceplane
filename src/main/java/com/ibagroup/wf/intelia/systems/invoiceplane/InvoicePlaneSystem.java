@@ -25,18 +25,17 @@ public class InvoicePlaneSystem {
 
     public static final String INVOICEPLANE_CREDENTIALS_ALIAS = "invoice_plane";
 
+    @Inject
     private Logger logger;
-    private SecurityUtils securityUtils;
-    private ConfigurationManager cfg;
-    private Injector injector;
 
     @Inject
-    public InvoicePlaneSystem(Logger logger, SecurityUtils securityUtils, ConfigurationManager cfg, Injector injector) {
-        this.logger = logger;
-        this.securityUtils = securityUtils;
-        this.cfg = cfg;
-        this.injector = injector;
-    }
+    private SecurityUtils securityUtils;
+
+    @Inject
+    private ConfigurationManager cfg;
+
+    @Inject
+    private Injector injector;
 
     public ProductsPage addProduct(ProductTO product) {
         MenuNavigationBar menuNavigationBar = initSystem();
