@@ -10,7 +10,6 @@ import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import com.ibagroup.wf.intelia.core.clients.RobotDriverWrapper;
-import com.ibagroup.wf.intelia.core.config.ConfigurationManager;
 import com.ibagroup.wf.intelia.core.pagefactory.Wait;
 import com.ibagroup.wf.intelia.core.pagefactory.Wait.WaitFunc;
 import com.ibagroup.wf.intelia.systems.invoiceplane.to.ProductTO;
@@ -33,10 +32,6 @@ public class ProductsPage extends RobotDriverWrapper {
 
     @FindBy(xpath = "//div[@id='headerbar']/div[@class='pull-right']//a[@title='Prev' and not(contains(@class,'disabled'))]")
     private WebElement prevPage;
-
-    public ProductsPage(ConfigurationManager cmn) {
-        super(cmn);
-    }
 
     private static long counter = 0;
 

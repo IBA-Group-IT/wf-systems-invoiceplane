@@ -3,18 +3,13 @@ package com.ibagroup.wf.intelia.systems.invoiceplane.pages;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.ibagroup.wf.intelia.core.clients.RobotDriverWrapper;
-import com.ibagroup.wf.intelia.core.config.ConfigurationManager;
 import com.ibagroup.wf.intelia.core.pagefactory.Wait;
 import com.ibagroup.wf.intelia.core.pagefactory.Wait.WaitFunc;
 
+
 public class MenuNavigationBar extends RobotDriverWrapper {
 
-    private static final Logger logger = LoggerFactory.getLogger(MenuNavigationBar.class);
-    
     @Wait(waitFunc = WaitFunc.CLICKABLE, value = 40)
     @FindBy(xpath = "//a[contains(@class,'logout')]")
     private WebElement logoutButton;
@@ -31,15 +26,22 @@ public class MenuNavigationBar extends RobotDriverWrapper {
     @FindBy(xpath = "//*[@id='ip-navbar-collapse']//li/ul/li/a[text()='View products']")
     private WebElement viewProductsMenuItem;
 
-    public MenuNavigationBar(ConfigurationManager cmn) {
-        super(cmn);
-    }
+    @FindBy(xpath = "//*[@id='ip-navbar-collapse']//li/ul/li/a[text()='Create product']")
+    private WebElement createProductMenuItem;
+
 
     public ProductsPage openProducts() {
     	productsMenu.click();
     	viewProductsMenuItem.click();
 
-    	return new ProductsPage(getCfg());
+        return getInjector().getInstance(ProductsPage.class);
+    }
+
+    public CreateProductPage openCreateProduct() {
+        productsMenu.click();
+        createProductMenuItem.click();
+
+        return getInjector().getInstance(CreateProductPage.class);
     }
 
     public void openDashboard() {
@@ -51,7 +53,7 @@ public class MenuNavigationBar extends RobotDriverWrapper {
         try {
             logoutButton.click();
         } catch (TimeoutException ex) {
-            logger.info("Timed out on waiting logout button");
+            getLogger().info("Timed out on waiting logout button");
         }
     }
 
