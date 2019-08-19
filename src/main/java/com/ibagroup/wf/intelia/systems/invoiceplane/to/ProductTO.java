@@ -3,8 +3,9 @@ package com.ibagroup.wf.intelia.systems.invoiceplane.to;
 import com.freedomoss.workfusion.utils.gson.GsonUtils;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.ibagroup.wf.intelia.core.to.BaseTO;
 
-public class ProductTO {
+public class ProductTO extends BaseTO {
 
     @SerializedName("index")
     @Expose
