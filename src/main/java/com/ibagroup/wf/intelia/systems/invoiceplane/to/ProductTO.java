@@ -3,30 +3,37 @@ package com.ibagroup.wf.intelia.systems.invoiceplane.to;
 import com.freedomoss.workfusion.utils.gson.GsonUtils;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.ibagroup.wf.intelia.core.mis.LoggableDetail;
 import com.ibagroup.wf.intelia.core.to.BaseTO;
 
 public class ProductTO extends BaseTO {
 
+    @LoggableDetail(name = "index")
     @SerializedName("index")
     @Expose
     private long index;
 
+    @LoggableDetail(name = "family")
 	@SerializedName("family")
 	@Expose
 	private String family;
 
+    @LoggableDetail(name = "sku")
 	@SerializedName("sku")
 	@Expose
 	private String sku;
 
+    @LoggableDetail(name = "product_name")
 	@SerializedName("product_name")
 	@Expose
 	private String productName;
 
+    @LoggableDetail(name = "product_description")
 	@SerializedName("product_description")
 	@Expose
 	private String productDescription;
 
+    @LoggableDetail(name = "price")
 	@SerializedName("price")
 	@Expose
 	private String price;

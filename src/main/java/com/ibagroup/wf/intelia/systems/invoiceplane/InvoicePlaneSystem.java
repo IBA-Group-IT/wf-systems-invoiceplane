@@ -92,7 +92,7 @@ public class InvoicePlaneSystem {
         return secureEntry;
     }
 
-    private void finaliseSystem(MenuNavigationBar menuNavigationBar) {
+    public void finaliseSystem(MenuNavigationBar menuNavigationBar) {
         if (menuNavigationBar != null) {
             menuNavigationBar.logout();
         }
