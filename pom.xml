@@ -2,19 +2,57 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<artifactId>intelia-parent</artifactId>
-		<groupId>com.ibagroup.wf</groupId>
-		<version>0.0.1</version>
-	</parent>
-	
+	<profiles>
+		<profile>
+			<id>wf90</id>
+			<properties>
+				<intelia.version>90</intelia.version>
+				<intelia.core.version>90.0.17</intelia.core.version>
+				<workfusion.version>9.0.0.7</workfusion.version>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>wf91</id>
+			<properties>
+				<intelia.version>91</intelia.version>
+				<intelia.core.version>91.0.17</intelia.core.version>
+				<workfusion.version>9.1.0.5</workfusion.version>
+			</properties>
+		</profile>
+
+		<profile>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<id>wf92</id>
+			<properties>
+				<intelia.version>92</intelia.version>
+				<intelia.core.version>92.0.17</intelia.core.version>
+				<workfusion.version>9.2.0.3</workfusion.version>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>wf93</id>
+			<properties>
+				<intelia.version>93</intelia.version>
+				<intelia.core.version>93.0.17</intelia.core.version>
+				<workfusion.version>9.3.0.0</workfusion.version>
+			</properties>
+		</profile>
+	</profiles>
+
+	<groupId>com.ibagroup.wf</groupId>
 	<artifactId>intelia-systems-invoiceplane</artifactId>
-	<version>${intelia.version.major}.0.8</version>
+	<packaging>jar</packaging>
+	<version>${intelia.version}.0.8</version>
 
 	<name>Workfusion sample RPA - InvoicePlane automation</name>
 
 	<properties>
-		<intelia.core.version>${intelia.version.major}.0.18</intelia.core.version>
+		<project.build.javaVersion>1.8</project.build.javaVersion>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<dependencies>
@@ -27,6 +65,7 @@
 		<dependency>
 			<groupId>com.freedomoss.crowdcontrol</groupId>
 			<artifactId>workfusion-machine</artifactId>
+			<version>${workfusion.version}</version>
 			<scope>provided</scope>
 			<exclusions>
                 <exclusion>
@@ -174,7 +213,7 @@
 	<repositories>
 		<repository>
 			<id>central</id>
-			<url>http://ewa7.itd.iba.by/nexus/repository/maven-public</url>
+			<url>${env.MAVEN_REPO_URL}/maven-public</url>
 		</repository>
 		<repository>
 			<!-- WF machine build's dependencies fix -->
