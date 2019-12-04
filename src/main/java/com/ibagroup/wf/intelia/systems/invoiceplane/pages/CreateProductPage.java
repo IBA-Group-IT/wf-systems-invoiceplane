@@ -66,7 +66,7 @@ public class CreateProductPage extends RobotDriverWrapper {
                 throw new RuntimeException(addProductFailed.get(0).getText() + "\n" + "Product: " + product.getProductName());
             }            
         } catch (TimeoutException e) {
-            getLogger().debug("Unkown error during creation of Invoice Plane product");
+            getLogger().debug("Unkown error during creation of InvoiceTO Plane product");
             throw new RuntimeException();
         }
     

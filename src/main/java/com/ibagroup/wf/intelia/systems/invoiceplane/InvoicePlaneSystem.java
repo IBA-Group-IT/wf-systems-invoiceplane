@@ -1,5 +1,18 @@
 package com.ibagroup.wf.intelia.systems.invoiceplane;
 
+import com.ibagroup.wf.intelia.core.Injector;
+import com.ibagroup.wf.intelia.core.config.ConfigurationManager;
+import com.ibagroup.wf.intelia.core.config.ConfigurationManager.Formatter;
+import com.ibagroup.wf.intelia.core.security.SecureEntryDtoWrapper;
+import com.ibagroup.wf.intelia.core.security.SecurityUtils;
+import com.ibagroup.wf.intelia.systems.invoiceplane.clients.InvoicePlaneClient;
+import com.ibagroup.wf.intelia.systems.invoiceplane.pages.*;
+import com.ibagroup.wf.intelia.systems.invoiceplane.to.CreateInvoiceResultTO;
+import com.ibagroup.wf.intelia.systems.invoiceplane.to.InvoiceTO;
+import com.ibagroup.wf.intelia.systems.invoiceplane.to.ProductTO;
+import org.slf4j.Logger;
+
+import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -7,19 +20,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
-import javax.inject.Inject;
-import org.slf4j.Logger;
-import com.ibagroup.wf.intelia.core.Injector;
-import com.ibagroup.wf.intelia.core.config.ConfigurationManager;
-import com.ibagroup.wf.intelia.core.config.ConfigurationManager.Formatter;
-import com.ibagroup.wf.intelia.core.security.SecureEntryDtoWrapper;
-import com.ibagroup.wf.intelia.core.security.SecurityUtils;
-import com.ibagroup.wf.intelia.systems.invoiceplane.clients.InvoicePlaneClient;
-import com.ibagroup.wf.intelia.systems.invoiceplane.pages.CreateProductPage;
-import com.ibagroup.wf.intelia.systems.invoiceplane.pages.LoginPage;
-import com.ibagroup.wf.intelia.systems.invoiceplane.pages.MenuNavigationBar;
-import com.ibagroup.wf.intelia.systems.invoiceplane.pages.ProductsPage;
-import com.ibagroup.wf.intelia.systems.invoiceplane.to.ProductTO;
 
 public class InvoicePlaneSystem {
 
@@ -44,6 +44,14 @@ public class InvoicePlaneSystem {
         logger.debug("Adding product: " + product.getProductName());
         finaliseSystem(menuNavigationBar);
         return productsPage;
+    }
+
+    public CreateInvoiceResultTO createInvoice(InvoiceTO invoice) {
+        MenuNavigationBar menuNavigationBar = initSystem();
+        CreateInvoiceDialog createInvoiceDialog = menuNavigationBar.openCreateInvoice();
+        InvoicePage invoicePage = createInvoiceDialog.create(invoice);
+        String invoice_number = invoicePage.updateInvoice(invoice);
+        return new CreateInvoiceResultTO(invoice_number);
     }
 
     public List<ProductTO> parseProducts() {

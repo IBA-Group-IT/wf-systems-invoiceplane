@@ -51,7 +51,7 @@ public class LoginPage extends RobotDriverWrapper {
                 throw new InvalidLoginException(loginFailedMessage.getText() + "\n" + "User Id: " + invoicePlaneCred.getKey());
             }
         } catch (TimeoutException e) {
-            getLogger().debug("Unkown error during Invoice Place authorisation process.");
+            getLogger().debug("Unkown error during InvoiceTO Place authorisation process.");
             throw new RuntimeException();
         }
 
