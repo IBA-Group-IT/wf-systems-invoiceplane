@@ -3,11 +3,12 @@ package com.ibagroup.wf.intelia.systems.invoiceplane.pages;
 import com.ibagroup.wf.intelia.core.clients.RobotDriverWrapper;
 import com.ibagroup.wf.intelia.core.pagefactory.Wait;
 import com.ibagroup.wf.intelia.systems.invoiceplane.to.InvoiceTO;
-import com.ibm.icu.text.SimpleDateFormat;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
+
+import java.text.SimpleDateFormat;
 
 public class CreateInvoiceDialog extends RobotDriverWrapper implements Constants {
 

@@ -2,47 +2,6 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<profiles>
-		<profile>
-			<id>wf90</id>
-			<properties>
-				<intelia.version>90</intelia.version>
-				<intelia.core.version>90.0.27</intelia.core.version>
-				<workfusion.version>9.0.0.7</workfusion.version>
-			</properties>
-		</profile>
-
-		<profile>
-			<id>wf91</id>
-			<properties>
-				<intelia.version>91</intelia.version>
-				<intelia.core.version>91.0.27</intelia.core.version>
-				<workfusion.version>9.1.0.5</workfusion.version>
-			</properties>
-		</profile>
-
-		<profile>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<id>wf92</id>
-			<properties>
-				<intelia.version>92</intelia.version>
-				<intelia.core.version>92.0.27</intelia.core.version>
-				<workfusion.version>9.2.0.3</workfusion.version>
-			</properties>
-		</profile>
-
-		<profile>
-			<id>wf93</id>
-			<properties>
-				<intelia.version>93</intelia.version>
-				<intelia.core.version>93.0.27</intelia.core.version>
-				<workfusion.version>9.3.0.0</workfusion.version>
-			</properties>
-		</profile>
-	</profiles>
-
 	<groupId>com.ibagroup.wf</groupId>
 	<artifactId>intelia-systems-invoiceplane</artifactId>
 	<packaging>jar</packaging>
@@ -53,6 +12,9 @@
 	<properties>
 		<project.build.javaVersion>1.8</project.build.javaVersion>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<intelia.version>101</intelia.version>
+		<intelia.core.version>${intelia.version}.0.29</intelia.core.version>
+		<wf.bot-execution.version>10.1.0.13</wf.bot-execution.version>
 	</properties>
 
 	<dependencies>
@@ -63,16 +25,10 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.freedomoss.crowdcontrol</groupId>
-			<artifactId>workfusion-machine</artifactId>
-			<version>${workfusion.version}</version>
+			<groupId>com.workfusion.spa.bot</groupId>
+			<artifactId>bot-execution-core</artifactId>
 			<scope>provided</scope>
-			<exclusions>
-                <exclusion>
-                    <groupId>net.minidev</groupId>
-                    <artifactId>json-smart</artifactId>
-                </exclusion>
-            </exclusions>
+			<version>${wf.bot-execution.version}</version>
 		</dependency>
 	</dependencies>
 
