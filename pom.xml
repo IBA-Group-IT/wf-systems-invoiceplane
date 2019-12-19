@@ -173,13 +173,28 @@
 		</repository>
 		<repository>
 			<!-- WF machine build's dependencies fix -->
+			<id>local-repo</id>
+			<url>${env.MAVEN_REPO_URL}/local-mcb-repo</url>
+		</repository>
+		<repository>
+			<!-- WF machine build's dependencies fix -->
 			<id>local-nexus</id>
-			<url>${env.MAVEN_REPO_URL}/maven-public</url>
+			<url>${env.MAVEN_REPO_URL}/local-mcb-repo</url>
 		</repository>
 		<repository>
 			<!-- WF machine build's dependencies fix -->
 			<id>jboss-snapshot</id>
-			<url>${env.MAVEN_REPO_URL}/maven-public</url>
+			<url>${env.MAVEN_REPO_URL}/local-mcb-repo-snapshots</url>
+		</repository>
+		<repository>
+			<!-- WF machine build's dependencies fix -->
+			<id>neon</id>
+			<url>${env.MAVEN_REPO_URL}/local-mcb-repo</url>
+		</repository>
+		<repository>
+			<!-- WF machine build's dependencies fix -->
+			<id>photon</id>
+			<url>${env.MAVEN_REPO_URL}/local-mcb-repo</url>
 		</repository>
 	</repositories>
 
