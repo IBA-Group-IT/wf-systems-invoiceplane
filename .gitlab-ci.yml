@@ -7,71 +7,23 @@ variables:
 cache:
   paths:
     - .m2/repository
-    - target/
 
-build90:
+build:
   stage: build
   tags: 
     - DOCKER
   script:
-    - 'mvn -P wf90 $MAVEN_CLI_OPTS install'
-    
-build91:
-  stage: build
-  tags: 
-    - DOCKER
-  script:
-    - 'mvn -P wf91 $MAVEN_CLI_OPTS install'
-    
-build92:
-  stage: build
-  tags: 
-    - DOCKER
-  script:
-    - 'mvn -P wf92 $MAVEN_CLI_OPTS install'
-    
-build93:
-  stage: build
-  tags: 
-    - DOCKER
-  script:
-    - 'mvn -P wf93 $MAVEN_CLI_OPTS install'
-    
-deploy90:
+    - 'mvn $MAVEN_CLI_OPTS clean install'
+      
+deploy:
   stage: deploy
   tags: 
     - DOCKER
   script:
-    - 'mvn -P wf90 $MAVEN_CLI_OPTS deploy'
+    - 'mvn $MAVEN_CLI_OPTS deploy'
   only:
-    - master
-    
-deploy91:
-  stage: deploy
-  tags: 
-    - DOCKER
-  script:
-    - 'mvn -P wf91 $MAVEN_CLI_OPTS deploy'
-  only:
-    - master
-    
-deploy92:
-  stage: deploy
-  tags: 
-    - DOCKER
-  script:
-    - 'mvn -P wf92 $MAVEN_CLI_OPTS deploy'
-  only:
-    - master
-    
-deploy93:
-  stage: deploy
-  tags: 
-    - DOCKER
-  script:
-    - 'mvn -P wf93 $MAVEN_CLI_OPTS deploy'
-  only:
-    - master 
+    - wf10
+
 
   
 
